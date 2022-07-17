@@ -1,0 +1,49 @@
+@page "/employeeoverview"
+
+<h1 class="page-title">All Employees</h1>
+
+@if (Employees == null)
+{
+    <p><em>Loading...</em></p>
+}
+
+else
+{
+    <table class="table">
+        <thead>
+
+        <tr>
+            <th></th>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+
+
+        </tr>
+
+
+
+        </thead>
+        <tbody>
+        @foreach (var e in Employees)
+        {
+            <tr>
+                <td><img src="@($"https://citynews-napolitoday.stgy.ovh/~media/horizontal-low/42180368389175/peppe-2.jpg")"/></td>
+                <td>@e.EmployeeId</td>
+                <td>@e.FirstName</td>
+                <td>@e.LastName</td>
+                <td>
+                    <a href="@($"employeedetail/{e.EmployeeId}")" class="btn btn-primary table-btn">
+                    <i class="fas fa-info-circle"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+        </tbody>
+
+
+
+    </table>
+
+}
+
